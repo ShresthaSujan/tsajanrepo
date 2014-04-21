@@ -1,0 +1,13 @@
+sed 's/<p>//g' 31_51265.txt > temp1.txt
+sed 's/<\/\p>//g' temp1.txt
+
+cat temp1.txt | grep -Ev '#' temp1.txt > temp2.txt
+cat temp2.txt |grep -Ev '0' temp2.txt > temp3.txt
+
+grep -e '^$' -v temp3.txt > temp4.txt
+
+sed 's/। /।\n/g' temp4.txt > temp5.txt 
+sed 's/? /?\n/g' temp5.txt > final1.txt
+
+rm temp*.txt
+
